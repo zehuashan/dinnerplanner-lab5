@@ -1,0 +1,418 @@
+body { 
+  	background: url('././images/dinner.jpg') no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+.topnav{ 
+	font-size: 350%;
+}
+.navbar {
+ 	background:rgba(255,165,0,1);
+ 	height:15vh;
+ 	border-bottom: 3px solid;
+}
+
+#createDinner {
+	position: absolute;
+	background:rgba(250,250,250,0.7);
+	border-radius: 0px;
+	margin-right: auto;
+	margin-left: 5%;
+	margin-top: 10%;
+	width: 35%;
+	height: 35vh;
+}
+.bottom {
+	position: absolute;
+	bottom: 5%;
+	margin-left: 5%;
+}
+.bottom1 {
+	position: absolute;
+	bottom: 5%;
+	margin-left: 2%;
+}
+.startquickly{
+	position: absolute;
+	bottom: 15%;
+	margin-left: 5%;
+}
+
+.floattext{
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.floattitle{
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.statusbar{
+	position: absolute;
+	background:rgba(250,250,250,1);
+	top:15vh;
+	width:100%;
+	height: 8vh;
+	border-bottom: 3px solid;
+}
+
+.btn-secondary{
+	position:absolute;
+	top:2vh;
+	background:rgba(255,165,0,1);
+}
+#menuview{
+	position: absolute;
+	top:40vh;
+	height: 30vh;
+	width:100%;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+#menuviewinner{
+	position: relative;
+	height: 5vh;
+	width:66%;
+	margin: 0 auto;
+}
+
+.menuviewitem{
+	position:absolute;
+	color: #A91C1C;
+	top:20vh;
+}
+.totalcost{
+	position:relative;
+	top:39vh;
+	left:80%;
+	color: #A91C1C; 
+}
+.totallabel{
+	position:relative;
+	left:80%;
+	top:40vh; 
+}
+.menuviewpic{
+	position:relative;
+	top:25vh;
+	float:right;
+}
+.printbtncon{
+	position:absolute;
+	bottom:25vh;
+	left:45%;
+}
+.confirmbtn{
+	position: absolute;
+	left:30%;
+}
+#sidebar{
+	position: absolute;
+	width:20%;
+	top:16vh;
+	height:80vh;
+	border: 2px solid black;
+	background:rgba(255,255,255,1);
+}
+.leftdiv1{
+	position: relative;
+	padding-left: 5%;
+	width:100%;
+	height:150px;
+}
+.leftdiv2{
+	position: relative;
+	width:100%;
+	height:50px;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+}
+.leftdiv3{
+	position: relative;
+	width:100%;
+}
+.leftdivitem{
+	position: relative;
+	width:100%;
+	height:5vh;
+}
+.leftdiv4{
+	position: relative;
+	width:100%;
+	height:5vh;
+}
+.leftdiv5{
+	position: relative;
+	width:100%;
+	height:5vh;
+}
+
+
+.leftcontlefttext{
+	margin-top: 10%;
+	font-weight: 900;
+	float:left;
+}
+.leftcontrighttext{
+	margin-top: 17%;
+	font-weight: 900;
+	float:right;
+}
+#rightcont{
+	position: absolute;
+	width:80%;
+    left:20%;
+	top:16vh;
+	height:80vh;
+	border: 2px solid black;
+	background:rgba(255,255,255,1);
+	overflow:auto;
+}
+
+#rightcont1{
+	position: relative;
+	width: 50%;
+}
+#rightcont2{
+	position: absolute;
+	border: 2px solid black;
+	width: 50%;
+	right:0px;
+	top:0px;
+}
+#rightcont3{
+	position:relative;
+	left:1%;
+	width:80%;
+}
+
+.dishPrepCont{
+	position: relative;
+	top:8vh;
+	width: 100%;
+	height: 30vh;
+	padding-left:10%;
+	background:rgba(250,250,250,1);
+}
+.prepCont{
+	position: relative;
+	height: 30vh;
+	width:85%;
+
+}
+.prepContPic{
+padding-top:3%;
+position:absolute;
+width:15%;
+}
+.prepContDesc{
+position:absolute;
+width:33%;
+left:15%;
+}
+.prepContPrep{
+position:absolute;
+width:33%;
+left:52%;
+
+}
+/* for dish selection */
+.sName{
+	font-weight: bold;
+}
+#selectDish{
+	position: absolute;
+	width:80%;
+    left:20%;
+	top:16vh;
+	height:80vh;
+	border: 2px solid black;
+	background:rgba(255,255,255,1);
+}
+.sName {
+	background:rgba(255,165,0,1);
+	width:140px;
+	padding: 3px 3px 3px 3px;
+	border: 0px 5px 5px 5px solid;
+	border-color: white;
+}
+
+.selectdishbar{
+position:relative;
+width:100%;
+border-style: solid;
+border-width: 2px;
+height: 13vh;
+background-color: rgba(255, 222, 87, 1);
+}
+#dishcontent{
+position:relative;
+width:100%;
+top:20;
+height: 84%;
+border-style: solid;
+border-width: 2px;
+overflow:auto;
+padding:2%;
+}
+
+#dishDetailText{
+position: relative;
+
+}
+
+.selects{
+position:relative;
+height:10vh;
+width: 30%;	
+border-style: solid;
+border-width: 2px;
+}
+
+/* from marcus old index.css */
+.main1 {
+	position: absolute;
+	border: 2px solid #000;
+	border-left: none;
+	height: 80vh;
+	width: 80%;
+	left: 20%;
+}
+
+.form-inline {
+	position: relative;
+	left: 5%;
+}
+
+.ingline{
+	width: 85%;
+	margin-left:5%;
+	margin-right:5%;
+	border:1px solid #000;
+}
+#ingredientsTable{
+	padding-left: 10%;
+	height: 35vh;
+	overflow: auto;
+}
+.ingline1{
+	top:21vh;
+	width: 85%;
+	margin-left:5%;
+	margin-right:5%;
+	border:1px solid #000;
+}
+
+#line2 {
+	border: 1px solid #000;
+	position: absolute;
+	top: 149px;
+	width: 100%;
+}
+
+#line3 {
+	border: 1px solid #000;
+	position: relative;
+	width: 80%;
+}
+
+#rowimg {
+	top: 35%;
+	position: absolute;
+	width: 100%;
+}
+
+#rowtext {
+	top: 57%;
+	position: absolute;
+	width: 100%;
+	font-weight: bold;
+}
+#rowPar {
+	top: 63%;
+	position: absolute;
+	width: 100%;
+}
+
+
+
+@keyframes hvr-back-pulse {
+  50% {
+    background-color: rgba(255, 0, 0, 0.5);
+  }
+}
+
+.hvr-back-pulse {
+  width: 100%
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
+}
+.hvr-back-pulse:hover, .hvr-back-pulse:focus, .hvr-back-pulse:active {
+  -webkit-animation-name: hvr-back-pulse;
+  animation-name: hvr-back-pulse;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  background-color: #FF0000;
+  background-color: #FF0000;
+  color: white;
+}
+
+.ingpricetot{
+	position:absolute;
+	font-weight: bold;
+	top:2vh;
+}
+
+#boldpos{
+	position:absolute;
+	font-weight: bold;
+	top:2vh;
+}
+#leftpad{
+	padding-left:2%;
+}
+
+
+.divbutton {
+    height: 100px;
+    background: #0000ff;
+}
+
+.sImg {
+	position: relative;
+    left:25%;
+    width:140px;
+    height: 140px;
+}
+.detailImg{
+	left:2%;
+}
+
+.sDisc{
+	position: relative;
+	width:50%;
+}
+
+.all{
+	padding-bottom: 100px;
+}
