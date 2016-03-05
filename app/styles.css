@@ -234,7 +234,7 @@ left:52%;
 }
 .sName {
 	background:rgba(255,165,0,1);
-	width:140px;
+	width:200px;
 	padding: 3px 3px 3px 3px;
 	border: 0px 5px 5px 5px solid;
 	border-color: white;
@@ -398,11 +398,15 @@ border-width: 2px;
     background: #0000ff;
 }
 
+.dishcontpad{
+	padding-bottom: 30px;
+}
+
 .sImg {
 	position: relative;
-    left:25%;
-    width:140px;
-    height: 140px;
+    left:0%;
+    width: 200px;
+    height: 200px;
 }
 .detailImg{
 	left:2%;

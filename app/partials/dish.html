@@ -4,14 +4,44 @@
 <!-- TODO in Lab 5: Display the dish information including image, Description, 
 Instructions, Ingredients and total cost. -->
 
-<h1>{{Title}}</h1>
-<img ng-src="{{Image}}"></img>
-<p>{{Description}}</p>
-<p>{{Instructions}}</p>
-<table>
-	<tr ng-repeat="Ing in Ingredients">
-		<td>{{Ing.Name}}</td>
-		<td>{{Ing.MetricDisplayQuantity}} {{Ing.MetricUnit}}</td>
-		<td>{{Ing.Quantity}} {{Ing.Unit}}</td>
-	</tr>
-</table>
+
+
+<div id="rightcont">
+	
+	<div id="rightcont1">
+		<div id="dishDetailText">
+			<h1 style="padding-left:2%;">{{Title}}</h1>
+		</div>	
+		<img class="detailImg" ng-src="{{Image}}" width="320" height="320" style="padding-left:2%;">
+		<div style="padding-left:2%;"><p>{{Description}}</p></div>
+	</div>
+			
+
+	<div id="rightcont2">
+		<h3 class="numberOfGuests2" id="leftpad"> INGREDIENTS FOR {{getNumberOfGuests()}} PEOPLE</h3>
+			<div class="ingline"></div>
+			<div id="ingredientsTable"> 		
+				<table style="width:90%">
+					<tr ng-repeat="Ing in Ingredients">
+						<td>{{Ing.MetricDisplayQuantity}} {{Ing.MetricUnit}}</td>
+						<td>{{Ing.Name}}</td>
+						<td>{{Ing.Quantity}}</td>
+						<td>SEK</td>
+					</tr>
+				</table>  
+			</div>
+        <div class="col-sm-3"><button type="button" id="confBut" class="btn btn-secondary">Confirm Dish</button></div>
+        <div class="col-sm-3"><p></p></div>
+        <div class="col-sm-3"><p id="boldpos">Total</p></div>
+         <div class="col-sm-3"><div class="ingpricetot"><p><span>0</span></p></div></div>  
+	</div>
+
+
+	<div id="rightcont3">
+	<h1> Preperation </h1>
+	<p>{{Instructions}}</p>
+	</div> 
+	
+
+
+</div>

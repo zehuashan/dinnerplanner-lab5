@@ -14,6 +14,16 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope,$routeParams,Dinner) {
   5. Ingredients
   */
 
+  $scope.numberOfGuests = Dinner.getNumberOfGuests();
+
+  $scope.setNumberOfGuest = function(number){
+    Dinner.setNumberOfGuests(number);
+  }
+
+  $scope.getNumberOfGuests = function() {
+    return Dinner.getNumberOfGuests();
+  }
+
   $scope.display = function() {
   	Dinner.Dish.get({id:$routeParams.dishId}, function(data) {
   		$scope.Title = data.Title;
@@ -25,6 +35,8 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope,$routeParams,Dinner) {
 
   	});
   }
+
+
   $scope.display();
   
 });

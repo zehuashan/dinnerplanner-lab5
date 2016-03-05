@@ -121,7 +121,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   // ---------------------------------Lab 4 starts here!-------------------------------------
 
   // API key for BigOven data.
-  var apiKey = "H9n1zb6es492fj87OxDtZM9s5sb29rW3";
+  var apiKey = "66J8l00npnHHZcCNLRhxkfW1OHxbojy4";
   this.DishSearch = $resource('http://api.bigoven.com/recipes',{pg:1,rpp:25,api_key:apiKey});
   this.Dish = $resource('http://api.bigoven.com/recipe/:id',{api_key:apiKey}); 
 
