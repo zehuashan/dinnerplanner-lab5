@@ -137,7 +137,6 @@ body {
 .leftdivitem{
 	position: relative;
 	width:100%;
-	height:5vh;
 }
 .leftdiv4{
 	position: relative;
@@ -240,6 +239,9 @@ left:52%;
 	border-color: white;
 }
 
+a{
+    display: block;
+}
 .selectdishbar{
 position:relative;
 width:100%;

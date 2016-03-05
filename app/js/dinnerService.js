@@ -91,6 +91,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   //it is removed from the menu and the new one added.
   this.addDishToMenu = function(inDish) {
     //TODO Lab 2
+        console.log(inDish);
         var dish = inDish;
         for(key in menu) {
           if(menu[key].Category == dish.Category) {
@@ -98,16 +99,12 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
           }
         }
         menu.push(dish);
+        console.log(menu);
   }
 
   //Removes dish from menu
-  this.removeDishFromMenu = function(id) {
-    //TODO Lab 2
-        for(key in menu) {
-          if(menu[key].RecipeID == id) {
-            delete menu[key];
-          }
-        }
+  this.removeDishFromMenu = function(key) {
+              delete menu[key];
   }
 
   this.getDishName = function (id) {
@@ -121,7 +118,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   // ---------------------------------Lab 4 starts here!-------------------------------------
 
   // API key for BigOven data.
-  var apiKey = "66J8l00npnHHZcCNLRhxkfW1OHxbojy4";
+  var apiKey = "XKEdN82lQn8x6Y5jm3K1ZX8L895WUoXN";
   this.DishSearch = $resource('http://api.bigoven.com/recipes',{pg:1,rpp:25,api_key:apiKey});
   this.Dish = $resource('http://api.bigoven.com/recipe/:id',{api_key:apiKey}); 
 

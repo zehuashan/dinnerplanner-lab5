@@ -13,8 +13,8 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope,Dinner) {
      $scope.status = "There was an error";
    });
  }
-
-	Dinner.DishSearch.get({},function(data){
+ 	//populates site for first run
+    Dinner.DishSearch.get({},function(data){
 	 $scope.dishes = data.Results;
      $scope.status = "Showing " + data.Results.length + " results";
 	},function(){

@@ -5,7 +5,6 @@
 Instructions, Ingredients and total cost. -->
 
 
-
 <div id="rightcont">
 	
 	<div id="rightcont1">
@@ -14,6 +13,7 @@ Instructions, Ingredients and total cost. -->
 		</div>	
 		<img class="detailImg" ng-src="{{Image}}" width="320" height="320" style="padding-left:2%;">
 		<div style="padding-left:2%;"><p>{{Description}}</p></div>
+		<div style="padding-left:2%;"><a href="#/search" class="btn btn-warning" id="backToSelectDish">Back to select dish</a></div>
 	</div>
 			
 
@@ -23,17 +23,17 @@ Instructions, Ingredients and total cost. -->
 			<div id="ingredientsTable"> 		
 				<table style="width:90%">
 					<tr ng-repeat="Ing in Ingredients">
-						<td>{{Ing.MetricDisplayQuantity}} {{Ing.MetricUnit}}</td>
+						<td>{{Ing.Quantity*getNumberOfGuests()}} {{Ing.Unit}}</td>
 						<td>{{Ing.Name}}</td>
-						<td>{{Ing.Quantity}}</td>
+						<td>{{Ing.Quantity*getNumberOfGuests()}}</td>
 						<td>SEK</td>
 					</tr>
 				</table>  
 			</div>
-        <div class="col-sm-3"><button type="button" id="confBut" class="btn btn-secondary">Confirm Dish</button></div>
+        <div class="col-sm-3"><button ng-click='addDishToMenu()'type="button" id="confBut" class="btn btn-secondary">Confirm Dish</button></div>
         <div class="col-sm-3"><p></p></div>
         <div class="col-sm-3"><p id="boldpos">Total</p></div>
-         <div class="col-sm-3"><div class="ingpricetot"><p><span>0</span></p></div></div>  
+        <div class="col-sm-3"><div class="ingpricetot"><p>{{totalPrice()*getNumberOfGuests()}}</p></div></div>  
 	</div>
 
 

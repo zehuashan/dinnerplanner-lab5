@@ -26,6 +26,7 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope,$routeParams,Dinner) {
 
   $scope.display = function() {
   	Dinner.Dish.get({id:$routeParams.dishId}, function(data) {
+  		$scope.dish = data;
   		$scope.Title = data.Title;
   		$scope.Image = data.ImageURL;
   		$scope.Description = data.Description;
@@ -35,6 +36,21 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope,$routeParams,Dinner) {
 
   	});
   }
+
+  $scope.totalPrice = function() {
+  	var IngredientsArray = $scope.Ingredients
+  	var totalPrice = 0;
+  		for (var i = 0; i < IngredientsArray.length; i++){
+  			totalPrice = totalPrice + IngredientsArray[i].Quantity;
+  		}
+  	return parseInt(totalPrice);
+  }
+
+  $scope.addDishToMenu = function() {
+	Dinner.addDishToMenu($scope.dish);
+  }
+
+
 
 
   $scope.display();
