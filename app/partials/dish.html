@@ -3,3 +3,15 @@
 
 <!-- TODO in Lab 5: Display the dish information including image, Description, 
 Instructions, Ingredients and total cost. -->
+
+<h1>{{Title}}</h1>
+<img ng-src="{{Image}}"></img>
+<p>{{Description}}</p>
+<p>{{Instructions}}</p>
+<table>
+	<tr ng-repeat="Ing in Ingredients">
+		<td>{{Ing.Name}}</td>
+		<td>{{Ing.MetricDisplayQuantity}} {{Ing.MetricUnit}}</td>
+		<td>{{Ing.Quantity}} {{Ing.Unit}}</td>
+	</tr>
+</table>

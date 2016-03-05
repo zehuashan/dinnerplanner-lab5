@@ -5,7 +5,7 @@
 // the next time.
 dinnerPlannerApp.factory('Dinner',function ($resource) {
   
-  var numberOfGuest = 4;
+  var numberOfGuests = 4;
 
   // TODO in Lab 5: Add your model code from previous labs
   // feel free to remove above example code
