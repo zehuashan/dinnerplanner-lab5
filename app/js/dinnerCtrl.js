@@ -3,6 +3,7 @@
 dinnerPlannerApp.controller('DinnerCtrl', function ($scope,Dinner) {
 
   $scope.numberOfGuests = Dinner.getNumberOfGuests();
+  $scope.Menu = Dinner.getFullMenu();
 
   $scope.setNumberOfGuest = function(number){
     Dinner.setNumberOfGuests(number);
@@ -28,9 +29,9 @@ dinnerPlannerApp.controller('DinnerCtrl', function ($scope,Dinner) {
   	var price = 0;
   	$scope.totalPrice = 0;
   		for (var i = 0; i < $scope.Menu.length; i++){
-  			price = Dinner.getDishPrice($scope.Menu[i])/$scope.numberOfGuests;
+  			price = (Dinner.getDishPrice($scope.Menu[i])/$scope.numberOfGuests) | 0;
+  			$scope.Menu[i].Price = price;
   			$scope.priceArray[i] = price | 0;
-  			console.log($scope.priceArray);
   			$scope.totalPrice = $scope.totalPrice + $scope.priceArray[i];
   		}
   	}

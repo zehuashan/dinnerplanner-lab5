@@ -99,9 +99,9 @@ body {
 }
 
 .menuviewitem{
-	position: relative;
+	position: absolute;
 	color: #A91C1C;
-	top:2vh;
+	top:30.5vh;
 }
 .totalcost{
 	position:relative;
