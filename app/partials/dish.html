@@ -23,14 +23,14 @@ Instructions, Ingredients and total cost. -->
 			<div id="ingredientsTable"> 		
 				<table style="width:90%">
 					<tr ng-repeat="Ing in Ingredients">
-						<td>{{Ing.Quantity*getNumberOfGuests()}} {{Ing.Unit}}</td>
+						<td>{{Ing.Quantity*getNumberOfGuests() | number : 0}} {{Ing.Unit}}</td>
 						<td>{{Ing.Name}}</td>
-						<td>{{Ing.Quantity*getNumberOfGuests()}}</td>
+						<td>{{Ing.Quantity*getNumberOfGuests() | number : 0}}</td>
 						<td>SEK</td>
 					</tr>
 				</table>  
 			</div>
-        <div class="col-sm-3"><button ng-click='addDishToMenu()'type="button" id="confBut" class="btn btn-secondary">Confirm Dish</button></div>
+        <div class="col-sm-3"><a ng-click="addDishToMenu()" href="#/search" type="button" id="confBut" class="btn btn-secondary">Confirm Dish</a></div>
         <div class="col-sm-3"><p></p></div>
         <div class="col-sm-3"><p id="boldpos">Total</p></div>
         <div class="col-sm-3"><div class="ingpricetot"><p>{{totalPrice()*getNumberOfGuests()}}</p></div></div>  
