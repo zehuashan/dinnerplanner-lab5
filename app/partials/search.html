@@ -13,6 +13,7 @@ not support it in free version) and list all the dishes that match the search. -
                 <input type="text" ng-model="query"/>
 				<button ng-click="search(query)">Search!</button>
 				{{status}}
+				<div class="mid" ng-show="isLoading==1" id="loading-image"> <img src="http://www.arabianbusiness.com/skins/ab.main/gfx/loading_spinner.gif"> </img></div>
             </div>
         </div>
 

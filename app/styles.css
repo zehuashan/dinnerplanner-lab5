@@ -5,6 +5,13 @@ body {
   	-o-background-size: cover;
   	background-size: cover;
 }
+.mid{
+	z-index: 999;
+	display: block!important;
+	position: absolute;
+	left:115%;
+	top:30vh;
+}
 .topnav{ 
 	font-size: 350%;
 }
