@@ -9,13 +9,19 @@
 		
 	<div id="menuview"> 
 		<div id="menuviewinner">
-			<div ng-repeat="dish in Menu track by $index">
+			<div ng-repeat="dish in Menu">
  				<div class="col-md-4 dishcontpad">
  					<img class="sImg" ng-src="{{dish.ImageURL}}">
  						<div class="sName">{{dish.Title}}</div>
- 						<h1 class="menuviewitem">{{priceArray.$index}}</h1>
  				</div>
  			</div>
+
+ 			<div ng-repeat="price in priceArray">
+ 				<div class="col-md-4 dishcontpad">
+ 						<h1 class="menuviewitem">{{price*numberOfGuests}} SEK</h1>
+ 				</div>
+ 			</div>
+
 		</div>
 	</div>
 		

@@ -18,7 +18,7 @@ body {
 	display: block!important;
 	position: absolute;
 	left:39%;
-	top:33vh;
+	top:32vh;
 }
 .topnav{ 
 	font-size: 350%;
@@ -99,9 +99,9 @@ body {
 }
 
 .menuviewitem{
-	position: absolute;
+	position: relative;
 	color: #A91C1C;
-	top:30vh;
+	top:2vh;
 }
 .totalcost{
 	position:relative;
