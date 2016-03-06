@@ -6,6 +6,7 @@
 dinnerPlannerApp.factory('Dinner',function ($resource) {
   
   var numberOfGuests = 4;
+  var maxdishes = 0;
 
   // TODO in Lab 5: Add your model code from previous labs
   // feel free to remove above example code
@@ -92,20 +93,27 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   this.addDishToMenu = function(inDish) {
     //TODO Lab 2
         //console.log(inDish);
-
+        if (maxdishes <= 2){
         var dish = inDish;
         for(key in menu) {
           if(menu[key].Category == dish.Category) {
-            this.removeDishFromMenu(key);
+              var alertMsg = 'Only one ' + menu[key].Category + ' is allowed, in order to choose another ' + menu[key].Category + ', please remove the last one.';
+              alert(alertMsg);
+              return false;
           }
         }
         menu.push(dish);
-        console.log(menu);
+        maxdishes = maxdishes + 1;
+        console.log(menu);} 
+        else {
+          alert("Maximum 3 items in menu.");
+        } 
   }
 
   //Removes dish from menu
   this.removeDishFromMenu = function(key) {
-              delete menu[key];
+    maxdishes = maxdishes - 1 ;
+    delete menu[key];
   }
 
 
