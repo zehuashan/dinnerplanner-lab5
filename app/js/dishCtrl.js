@@ -13,7 +13,7 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope,$routeParams,Dinner) {
   4. Prep
   5. Ingredients
   */
-
+  $scope.isLoading1=1;
   $scope.numberOfGuests = Dinner.getNumberOfGuests();
 
   $scope.setNumberOfGuest = function(number){
@@ -26,6 +26,7 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope,$routeParams,Dinner) {
 
   $scope.display = function() {
   	Dinner.Dish.get({id:$routeParams.dishId}, function(data) {
+  		$scope.isLoading1=0;
   		$scope.dish = data;
   		$scope.Title = data.Title;
   		$scope.Image = data.ImageURL;

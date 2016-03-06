@@ -12,6 +12,14 @@ body {
 	left:115%;
 	top:30vh;
 }
+
+.mid1{
+	z-index: 999;
+	display: block!important;
+	position: absolute;
+	left:39%;
+	top:33vh;
+}
 .topnav{ 
 	font-size: 350%;
 }
