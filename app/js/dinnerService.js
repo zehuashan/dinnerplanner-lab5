@@ -92,10 +92,11 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   this.addDishToMenu = function(inDish) {
     //TODO Lab 2
         //console.log(inDish);
+
         var dish = inDish;
         for(key in menu) {
           if(menu[key].Category == dish.Category) {
-            this.removeDishFromMenu(menu[key].RecipeID);
+            this.removeDishFromMenu(key);
           }
         }
         menu.push(dish);

@@ -84,20 +84,20 @@ body {
 }
 
 .menuviewitem{
-	position:absolute;
+	position: absolute;
 	color: #A91C1C;
-	top:20vh;
+	top:30vh;
 }
 .totalcost{
 	position:relative;
-	top:39vh;
+	top:49.5vh;
 	left:80%;
 	color: #A91C1C; 
 }
 .totallabel{
 	position:relative;
 	left:80%;
-	top:40vh; 
+	top:49.5vh; 
 }
 .menuviewpic{
 	position:relative;
@@ -106,7 +106,7 @@ body {
 }
 .printbtncon{
 	position:absolute;
-	bottom:25vh;
+	bottom:15vh;
 	left:45%;
 }
 .confirmbtn{
@@ -218,7 +218,7 @@ left:15%;
 }
 .prepContPrep{
 position:absolute;
-width:33%;
+width:60%;
 left:52%;
 
 }

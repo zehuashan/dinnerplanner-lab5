@@ -12,7 +12,8 @@
 			<div ng-repeat="dish in Menu">
  				<div class="col-md-4 dishcontpad">
  					<img class="sImg" ng-src="{{dish.ImageURL}}">
- 						<h1 class"menuviewitem"> 1337 SEK</h1>
+ 						<div class="sName">{{dish.Title}}</div>
+ 						<h1 class="menuviewitem"> 1337 SEK</h1>
  				</div>
  			</div>
 		</div>
@@ -21,6 +22,6 @@
 		
 	<div id="totPrice">
 		<h1 class="totallabel">Total:</h1><h1 class="totalcost" id="totPrice"> <span>0</span> SEK</h1>
-		</div>
+	</div>
 		<div class="printbtncon" id="goToPrep"><a href="#/prep" class="btn btn-warning">Print Full Recipe</a></div>
 </div>	

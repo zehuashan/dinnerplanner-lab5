@@ -38,10 +38,10 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope,$routeParams,Dinner) {
   }
 
   $scope.totalPrice = function() {
-  	var IngredientsArray = $scope.Ingredients
+  	$scope.IngredientsArray = $scope.Ingredients;
   	var totalPrice = 0;
-  		for (var i = 0; i < IngredientsArray.length; i++){
-  			totalPrice = totalPrice + IngredientsArray[i].Quantity;
+  		for (var i = 0; i < $scope.IngredientsArray.length; i++){
+  			totalPrice = totalPrice + $scope.IngredientsArray[i].Quantity;
   		}
   	return parseInt(totalPrice);
   }
