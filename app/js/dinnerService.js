@@ -91,7 +91,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   //it is removed from the menu and the new one added.
   this.addDishToMenu = function(inDish) {
     //TODO Lab 2
-        console.log(inDish);
+        //console.log(inDish);
         var dish = inDish;
         for(key in menu) {
           if(menu[key].Category == dish.Category) {
@@ -106,6 +106,17 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   this.removeDishFromMenu = function(key) {
               delete menu[key];
   }
+
+
+  /* old remove function, temporary using this function above
+  this.removeDishFromMenu = function(id) {
+    //TODO Lab 2
+        for(key in menu) {
+          if(menu[key].RecipeID == id) {
+            delete menu[key];
+          }
+        }
+  }*/
 
   this.getDishName = function (id) {
     for (key in dishes) {

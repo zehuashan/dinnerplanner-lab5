@@ -64,6 +64,10 @@ body {
 	top:2vh;
 	background:rgba(255,165,0,1);
 }
+.toppad{
+	position: relative;
+	top:2vh;
+}
 #menuview{
 	position: absolute;
 	top:40vh;
