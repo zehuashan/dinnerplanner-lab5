@@ -224,6 +224,7 @@ body {
 .prepContPic{
 padding-top:3%;
 position:absolute;
+left:-5%;
 width:15%;
 }
 .prepContDesc{
