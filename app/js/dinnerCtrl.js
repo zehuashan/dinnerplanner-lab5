@@ -1,6 +1,6 @@
 // Dinner controller that we use whenever we have view that needs to 
 // display or modify the dinner menu
-dinnerPlannerApp.controller('DinnerCtrl', function ($scope,Dinner) {
+dinnerPlannerApp.controller('DinnerCtrl', function ($scope,Dinner,$cookieStore) {
 
   $scope.numberOfGuests = Dinner.getNumberOfGuests();
   $scope.Menu = Dinner.getFullMenu();
@@ -18,10 +18,11 @@ dinnerPlannerApp.controller('DinnerCtrl', function ($scope,Dinner) {
   }
 
   $scope.removeDish= function(Items) {
+    //console.log("Items = " + Items.RecipeID);
   	var index = $scope.Menu.indexOf(Items);
   	$scope.Menu.splice(index, 1);
-  	console.log($scope.Menu);
   	$scope.prices();
+    Dinner.removeDishFromMenu(Items.RecipeID);
   }
 
   $scope.prices = function (){

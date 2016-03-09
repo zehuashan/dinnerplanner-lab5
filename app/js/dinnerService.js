@@ -3,10 +3,33 @@
 // dependency on any service you need. Angular will insure that the
 // service is created first time it is needed and then just reuse it
 // the next time.
-dinnerPlannerApp.factory('Dinner',function ($resource) {
+dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
   
   var numberOfGuests = 4;
   var maxdishes = 0;
+  var addedDishes = [];
+
+
+
+
+/*
+  if($cookieStore.get('numberOfGuests')) {
+    var numberOfGuests = $cookieStore.get('numberOfGuests');
+  } else {
+    var numberOfGuests = 4;
+  }
+
+
+  if($cookieStore.get('addedDishes')) {
+    var selectedMenu = $cookieStore.get('addedDishes');
+    for(id in selectedMenu) {
+      this.Dish.get({id:selectedMenu[id]}, (data) => {
+        console.log("Are we in yet?!")
+        this.addDishToMenu(data);
+      });
+    }
+  }
+  */
 
   // TODO in Lab 5: Add your model code from previous labs
   // feel free to remove above example code
@@ -25,13 +48,9 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   
   var menu = [];
 
-
-
   this.setNumberOfGuests = function (num) {
-    //TODO Lab 2
-    if (num > 0) {
     numberOfGuests = num;
-    }
+    $cookieStore.put('numberOfGuests', num);
   }
 
   // should return 
@@ -47,6 +66,12 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
       if(menu[key].Category == type) {
         return menu[key];
       }
+    }
+  }
+
+  this.rePopMenu = function() {
+    for(var i=0;i<4;i++){
+
     }
   }
 
@@ -102,6 +127,9 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
               return false;
           }
         }
+        addedDishes.push(inDish.RecipeID)
+        $cookieStore.put('addedDishes', addedDishes);
+        console.log("Print Cookie: " + $cookieStore.get('addedDishes'));
         menu.push(dish);
         maxdishes = maxdishes + 1;
         console.log(menu);} 
@@ -111,9 +139,12 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   }
 
   //Removes dish from menu
-  this.removeDishFromMenu = function(key) {
-    maxdishes = maxdishes - 1 ;
-    delete menu[key];
+  this.removeDishFromMenu = function(id) {
+    maxdishes = maxdishes - 1;
+    var index = addedDishes.indexOf(id);
+    if(index > -1) {
+      addedDishes.splice(index, 1);
+      $cookieStore.remove('addedDishes');    }
   }
 
 
@@ -138,11 +169,32 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   // ---------------------------------Lab 4 starts here!-------------------------------------
 
   // API key for BigOven data.
-  var apiKey = "XKEdN82lQn8x6Y5jm3K1ZX8L895WUoXN";
+  var apiKey = "3stL5NVP4s6ZkmK5gt4dci8a4zOQRpD4";
   this.DishSearch = $resource('http://api.bigoven.com/recipes',{pg:1,rpp:25,api_key:apiKey});
   this.Dish = $resource('http://api.bigoven.com/recipe/:id',{api_key:apiKey}); 
 
+  var getDish = this.Dish.get;
+  var getDishPrice = this.getDishPrice;
 
+
+    if($cookieStore.get('numberOfGuests') !== undefined) {
+      numberOfGuests = $cookieStore.get('numberOfGuests');
+    }
+
+
+    if($cookieStore.get('addedDishes') !== undefined) {
+      addedDishes = $cookieStore.get('addedDishes');
+      for (var i = 0; i < addedDishes.length; i++) {
+        console.log(addedDishes[i]);
+        getDish({id:addedDishes[i]}, function(dish) {
+          dish.price = getDishPrice(dish);
+          console.log(dish.price);
+          menu.push(dish);
+          }, function(data) {
+            console.log("there was an error");
+          });
+      }
+    }
  
   // Angular service needs to return an object that has all the
   // methods created in it. You can consider that this is instead
