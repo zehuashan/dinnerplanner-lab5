@@ -91,7 +91,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
     for (key in inDish.Ingredients) {
       price += inDish.Ingredients[key].Quantity;
     }
-    price = price * numberOfGuests;
+    price = price | 0;
     return price;
   }
 
@@ -112,10 +112,9 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
         addedDishes.push(inDish.RecipeID)
         $cookieStore.put('addedDishes', addedDishes);
         menu.push(dish);
-        dish.Price = (getDishPrice(dish)/numberOfGuests) | 0;
-        thisPrice += dish.Price;
-        $cookieStore.put('totalPrice', thisPrice);
-        console.log(thisPrice); 
+        dish.Price = getDishPrice(dish);
+        console.log(dish.Price);
+        this.adjustPricePlus(dish.Price);
         maxdishes = maxdishes + 1;
         console.log(menu);} 
         else {
@@ -134,14 +133,21 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
     }
   }
 
-  this.adjustPrice = function(num){
-    adjustedPrice = $cookieStore.get('totalPrice');
-    adjustedPrice = adjustedPrice - num;
-    $cookieStore.put('totalPrice', adjustedPrice);
+  this.adjustPriceMin = function(num){
+    thisPrice =  thisPrice - num;
+    console.log('minus ' + thisPrice);
+    $cookieStore.put('totalPrice', thisPrice);
+  }
+
+  this.adjustPricePlus = function(num){
+    thisPrice = thisPrice + num;
+    console.log('plus ' + thisPrice);
+    $cookieStore.put('totalPrice', thisPrice);
   }
 
   this.returnMenuPrice = function(){
     var totalPrice = $cookieStore.get('totalPrice');
+    console.log('intial value '+totalPrice);
     return totalPrice;
   }
 
@@ -167,7 +173,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
   // ---------------------------------Lab 4 starts here!-------------------------------------
 
   // API key for BigOven data.
-  var apiKey = "3stL5NVP4s6ZkmK5gt4dci8a4zOQRpD4";
+  var apiKey = "sV1fPGQKrO0b6oUYb6w9kLI8BORLiWox";
   this.DishSearch = $resource('http://api.bigoven.com/recipes',{pg:1,rpp:25,api_key:apiKey});
   this.Dish = $resource('http://api.bigoven.com/recipe/:id',{api_key:apiKey}); 
 
@@ -184,7 +190,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
       addedDishes = $cookieStore.get('addedDishes');
       for (var i = 0; i < addedDishes.length; i++) {
         getDish({id:addedDishes[i]}, function(dish) {
-          dish.Price = (getDishPrice(dish)/numberOfGuests) | 0;
+          dish.Price = getDishPrice(dish);
           menu.push(dish);
           }, function(data) {
             console.log("there was an error")
