@@ -22,14 +22,17 @@ dinnerPlannerApp.controller('DinnerCtrl', function ($scope,Dinner,$cookieStore) 
   	var index = $scope.Menu.indexOf(Items);
   	$scope.Menu.splice(index, 1);
   	$scope.prices();
-    Dinner.removeDishFromMenu(Items.RecipeID);
+    Dinner.removeDishFromCookies(Items.RecipeID);
   }
 
   $scope.prices = function (){
+    console.log('JAJAJAJA');
   	$scope.priceArray = [];
   	var price = 0;
   	$scope.totalPrice = 0;
+    console.log($scope.Menu);
   		for (var i = 0; i < $scope.Menu.length; i++){
+        console.log('HEJHEJ');
   			price = (Dinner.getDishPrice($scope.Menu[i])/$scope.numberOfGuests) | 0;
   			$scope.Menu[i].Price = price;
   			$scope.priceArray[i] = price | 0;

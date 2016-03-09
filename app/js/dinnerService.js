@@ -139,12 +139,14 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
   }
 
   //Removes dish from menu
-  this.removeDishFromMenu = function(id) {
+  this.removeDishFromCookies = function(id) {
     maxdishes = maxdishes - 1;
     var index = addedDishes.indexOf(id);
     if(index > -1) {
       addedDishes.splice(index, 1);
-      $cookieStore.remove('addedDishes');    }
+      console.log(addedDishes);
+      $cookieStore.put('addedDishes', addedDishes); 
+    }
   }
 
 
@@ -176,7 +178,6 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
   var getDish = this.Dish.get;
   var getDishPrice = this.getDishPrice;
 
-
     if($cookieStore.get('numberOfGuests') !== undefined) {
       numberOfGuests = $cookieStore.get('numberOfGuests');
     }
@@ -185,13 +186,11 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
     if($cookieStore.get('addedDishes') !== undefined) {
       addedDishes = $cookieStore.get('addedDishes');
       for (var i = 0; i < addedDishes.length; i++) {
-        console.log(addedDishes[i]);
         getDish({id:addedDishes[i]}, function(dish) {
-          dish.price = getDishPrice(dish);
-          console.log(dish.price);
+          dish.Price = (getDishPrice(dish)/numberOfGuests) | 0;
           menu.push(dish);
           }, function(data) {
-            console.log("there was an error");
+            console.log("there was an error")
           });
       }
     }
