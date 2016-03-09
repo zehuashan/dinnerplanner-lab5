@@ -24,6 +24,8 @@ dinnerPlannerApp.controller('DinnerCtrl', function ($scope,Dinner,$cookieStore) 
   	var index = $scope.Menu.indexOf(Items);
   	$scope.Menu.splice(index, 1);
   	$scope.prices();
+    var removedPrice = $scope.Menu[index].Price;
+    Dinner.adjustPrice(removedPrice);
     Dinner.removeDishFromCookies(Items.RecipeID);
   }
 
