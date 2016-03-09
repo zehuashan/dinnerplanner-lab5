@@ -8,6 +8,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
   var numberOfGuests = 4;
   var maxdishes = 0;
   var addedDishes = [];
+  var thisPrice = 0;
 
   var getTotalPrice = 0;
 
@@ -111,6 +112,8 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
         addedDishes.push(inDish.RecipeID)
         $cookieStore.put('addedDishes', addedDishes);
         menu.push(dish);
+        thisPrice += dish.Price;
+        $cookieStore.put('totalPrice', thisPrice); 
         maxdishes = maxdishes + 1;
         console.log(menu);} 
         else {
@@ -126,7 +129,13 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
       addedDishes.splice(index, 1);
       console.log(addedDishes);
       $cookieStore.put('addedDishes', addedDishes); 
+
     }
+  }
+
+  this.returnMenuPrice = function(){
+    var totalPrice = $cookieStore.get('totalPrice');
+    return totalPrice;
   }
 
 
@@ -169,6 +178,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
       for (var i = 0; i < addedDishes.length; i++) {
         getDish({id:addedDishes[i]}, function(dish) {
           dish.Price = (getDishPrice(dish)/numberOfGuests) | 0;
+          console.log(thisPrice);
           menu.push(dish);
           }, function(data) {
             console.log("there was an error")
