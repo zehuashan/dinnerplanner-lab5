@@ -7,6 +7,7 @@ dinnerPlannerApp.controller('DinnerCtrl', function ($scope,Dinner,$cookieStore) 
 
   $scope.setNumberOfGuest = function(number){
     Dinner.setNumberOfGuests(number);
+    $scope.prices();
   }
 
   $scope.getNumberOfGuests = function() {
@@ -15,6 +16,7 @@ dinnerPlannerApp.controller('DinnerCtrl', function ($scope,Dinner,$cookieStore) 
 
   $scope.displayMenu = function() {
   	$scope.Menu = Dinner.getFullMenu();
+    $scope.prices();
   }
 
   $scope.removeDish= function(Items) {
@@ -26,11 +28,9 @@ dinnerPlannerApp.controller('DinnerCtrl', function ($scope,Dinner,$cookieStore) 
   }
 
   $scope.prices = function (){
-    console.log('JAJAJAJA');
   	$scope.priceArray = [];
   	var price = 0;
   	$scope.totalPrice = 0;
-    console.log($scope.Menu);
   		for (var i = 0; i < $scope.Menu.length; i++){
         console.log('HEJHEJ');
   			price = (Dinner.getDishPrice($scope.Menu[i])/$scope.numberOfGuests) | 0;
