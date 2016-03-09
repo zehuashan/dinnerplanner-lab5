@@ -134,7 +134,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
   }
 
   this.adjustPriceMin = function(num){
-    thisPrice =  thisPrice - num;
+    thisPrice =  $cookieStore.get('totalPrice') - num;
     console.log('minus ' + thisPrice);
     $cookieStore.put('totalPrice', thisPrice);
   }
