@@ -140,9 +140,14 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
   }
 
   this.adjustPricePlus = function(num){
-    thisPrice = thisPrice + num;
+    if($cookieStore.get('totalPrice')==null){
+      $cookieStore.put('totalPrice', 0);
+      thisPrice = $cookieStore.get('totalPrice') + num;
     console.log('plus ' + thisPrice);
     $cookieStore.put('totalPrice', thisPrice);
+    } else{ thisPrice = $cookieStore.get('totalPrice') + num;
+    console.log('plus ' + thisPrice);
+    $cookieStore.put('totalPrice', thisPrice);}
   }
 
   this.returnMenuPrice = function(){
