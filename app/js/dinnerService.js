@@ -9,27 +9,8 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
   var maxdishes = 0;
   var addedDishes = [];
 
+  var getTotalPrice = 0;
 
-
-
-/*
-  if($cookieStore.get('numberOfGuests')) {
-    var numberOfGuests = $cookieStore.get('numberOfGuests');
-  } else {
-    var numberOfGuests = 4;
-  }
-
-
-  if($cookieStore.get('addedDishes')) {
-    var selectedMenu = $cookieStore.get('addedDishes');
-    for(id in selectedMenu) {
-      this.Dish.get({id:selectedMenu[id]}, (data) => {
-        console.log("Are we in yet?!")
-        this.addDishToMenu(data);
-      });
-    }
-  }
-  */
 
   // TODO in Lab 5: Add your model code from previous labs
   // feel free to remove above example code
@@ -129,7 +110,6 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
         }
         addedDishes.push(inDish.RecipeID)
         $cookieStore.put('addedDishes', addedDishes);
-        console.log("Print Cookie: " + $cookieStore.get('addedDishes'));
         menu.push(dish);
         maxdishes = maxdishes + 1;
         console.log(menu);} 
@@ -178,12 +158,13 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
   var getDish = this.Dish.get;
   var getDishPrice = this.getDishPrice;
 
-    if($cookieStore.get('numberOfGuests') !== undefined) {
+
+    if($cookieStore.get('numberOfGuests')) {
       numberOfGuests = $cookieStore.get('numberOfGuests');
     }
 
 
-    if($cookieStore.get('addedDishes') !== undefined) {
+    if($cookieStore.get('addedDishes')) {
       addedDishes = $cookieStore.get('addedDishes');
       for (var i = 0; i < addedDishes.length; i++) {
         getDish({id:addedDishes[i]}, function(dish) {

@@ -32,7 +32,6 @@ dinnerPlannerApp.controller('DinnerCtrl', function ($scope,Dinner,$cookieStore) 
   	var price = 0;
   	$scope.totalPrice = 0;
   		for (var i = 0; i < $scope.Menu.length; i++){
-        console.log('HEJHEJ');
   			price = (Dinner.getDishPrice($scope.Menu[i])/$scope.numberOfGuests) | 0;
   			$scope.Menu[i].Price = price;
   			$scope.priceArray[i] = price | 0;
