@@ -30,7 +30,9 @@ dinnerPlannerApp.controller('DinnerCtrl', function ($scope,Dinner,$cookieStore) 
   $scope.prices = function (){
   	$scope.priceArray = [];
   	var price = 0;
-  	$scope.totalPrice = 0;
+  	$scope.totalPrice = Dinner.returnMenuPrice();
+    console.log($scope.totalPrice);
+    if($scope.Menu.length>0){
   		for (var i = 0; i < $scope.Menu.length; i++){
         console.log('HEJHEJ');
   			price = (Dinner.getDishPrice($scope.Menu[i])/$scope.numberOfGuests) | 0;
@@ -38,6 +40,7 @@ dinnerPlannerApp.controller('DinnerCtrl', function ($scope,Dinner,$cookieStore) 
   			$scope.priceArray[i] = price | 0;
   			$scope.totalPrice = $scope.totalPrice + $scope.priceArray[i];
   		}
+    }
   	}
   // TODO in Lab 5: Implement the methods to get the dinner menu
   // add dish to menu and get total menu price
